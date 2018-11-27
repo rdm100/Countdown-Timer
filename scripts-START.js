@@ -49,3 +49,12 @@ function startTimer(){
 buttons.forEach(button => {
 	button.addEventListener("click", startTimer);
 });
+
+document.customForm.addEventListener("submit", function(e){
+	e.preventDefault();
+	const minutes = this.minutes.value;
+	console.log(minutes);
+	this.reset();
+	const seconds = minutes*60;
+	timer(seconds);
+});
