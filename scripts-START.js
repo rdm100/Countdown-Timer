@@ -22,7 +22,7 @@ function displayTimeLeft(seconds){
 	console.log(seconds);
 	const minutes = Math.floor(seconds/60);
 	const remainderSeconds = seconds % 60;
-	const display = `${minutes}:${remainderSeconds}`;
+	const display = `${minutes}:${remainderSeconds < 10 ? '0' + remainderSeconds : remainderSeconds}`;
 	timerDisplay.textContent = display;
 	console.log({minutes, remainderSeconds});
 }
