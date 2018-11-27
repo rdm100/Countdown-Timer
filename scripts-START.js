@@ -1,8 +1,10 @@
 let countdown;
 const timerDisplay = document.querySelector(".display__time-left");
 const endTime = document.querySelector(".display__end-time");
+const buttons = document.querySelectorAll('[data-time]');
 
 function timer(seconds){
+	clearInterval(countdown);
 	const currentTime = Date.now();
 	const then = currentTime + seconds*1000;
 	console.log({currentTime, then});
@@ -36,3 +38,14 @@ function displayEndTime(timestamp){
 	const minutes = end.getMinutes();
 	endTime.textContent = `Be back at ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? '0' + minutes : minutes}`;
 }
+
+function startTimer(){
+	console.log(this.dataset.time);
+	const seconds = parseInt(this.dataset.time);
+	console.log(seconds);
+	timer(seconds);
+}
+
+buttons.forEach(button => {
+	button.addEventListener("click", startTimer);
+});
