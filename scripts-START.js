@@ -58,3 +58,4 @@ document.customForm.addEventListener("submit", function(e){
 	const seconds = minutes*60;
 	timer(seconds);
 });
+
